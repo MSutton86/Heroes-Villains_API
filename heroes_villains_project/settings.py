@@ -1,4 +1,3 @@
-from local_settings import *
 """
 Django settings for heroes_villains_project project.
 
@@ -113,3 +112,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+try:
+    from heroes_villains_project.local_settings import *
+except ImportError:
+    pass
