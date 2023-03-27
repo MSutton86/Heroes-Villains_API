@@ -15,10 +15,11 @@ def super_list(request):
 
             
         if super_type:
-            supers = Super.filter(super_type__type=super_type)
+            supers = supers.filter(super_type__type=super_type)
             
         serializer = SupersSerializer(supers, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+        
     elif request.method == 'POST':
         serializer = SupersSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
